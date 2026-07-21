@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мои пожелания для тебя</title>
     <style>
-        /* Фирменный стиль */
         body {
             margin: 0;
             padding: 0;
@@ -15,7 +14,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden; /* Чтобы милота не ломала прокрутку экрана */
+            overflow: hidden;
             position: relative;
         }
 
@@ -29,7 +28,7 @@
             border: 5px solid #ff477e;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             position: relative;
-            z-index: 2; /* Текст и кнопки поверх летающих смайликов */
+            z-index: 2;
         }
 
         .title-text {
@@ -98,7 +97,6 @@
             gap: 15px;
         }
 
-        /* Идеальная круглая кнопка */
         .round-button {
             display: inline-flex;
             justify-content: center;
@@ -134,36 +132,72 @@
             text-decoration: underline;
         }
 
-        /* Настройка летающей милоты */
         .cute-emoji {
             position: absolute;
             bottom: -50px;
             user-select: none;
             pointer-events: none;
             animation: floatUpCute 6s linear infinite;
-            z-index: 1; /* Летают сзади */
+            z-index: 1;
         }
 
-        /* Плавная анимация взлета */
         @keyframes floatUpCute {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 1;
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-50vh) translateX(30px) rotate(180deg); opacity: 0.9; }
+            100% { transform: translateY(-110vh) translateX(-30px) rotate(360deg); opacity: 0; }
+        }
+
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        @media (max-width: 600px) {
+            body {
+                min-height: 100vh;
+                /* Разрешаем скролл, только если контент не влезает */
+                overflow-y: auto; 
+                /* Центрируем белую плашку ровно посередине экрана телефона */
+                display: flex;
+                justify-content: center;
+                align-items: center; 
             }
-            50% {
-                transform: translateY(-50vh) translateX(30px) rotate(180deg);
-                opacity: 0.9;
+
+            .container {
+                padding: 25px 15px;
+                width: 90%;
+                max-width: 340px;
+                margin: 25px auto;
+                box-sizing: border-box;
+                height: auto;
             }
-            100% {
-                transform: translateY(-110vh) translateX(-30px) rotate(360deg);
-                opacity: 0;
+            .title-text {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+            .wishes-box {
+                max-height: 180px; /* Сжали окошко, чтобы всё влезло на экран смартфона */
+                padding: 12px;
+            }
+            .wish-item {
+                font-size: 0.85rem;
+            }
+            .hint-text {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+            .round-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            .navigation {
+                gap: 10px;
+            }
+            .back-btn {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Набор милых летающих смайликов -->
     <div class="cute-emoji" style="left: 5%; animation-delay: 0s; font-size: 26px;">🐱</div>
     <div class="cute-emoji" style="left: 15%; animation-delay: 3s; font-size: 30px;">✨</div>
     <div class="cute-emoji" style="left: 28%; animation-delay: 1.5s; font-size: 28px;">🧸</div>
@@ -173,9 +207,7 @@
     <div class="cute-emoji" style="left: 90%; animation-delay: 3.5s; font-size: 27px;">🧸</div>
 
     <div class="container">
-        <div class="title-text">
-            Я желаю тебе:
-        </div>
+        <div class="title-text">Я желаю тебе:</div>
 
         <div class="wishes-box">
             <div class="wish-item">Искреннего и бесконечного счастья</div>
@@ -187,109 +219,26 @@
             <div class="wish-item">Радости от каждой мелочи</div>
             <div class="wish-item">Уютных и тёплых вечеров</div>
             <div class="wish-item">Исполнения самых заветных желаний</div>
-            <div class="wish-item">Верных и преданных друзей рядом</div>
             <div class="wish-item">Гармонии в душе и спокойствия</div>
             <div class="wish-item">Уверенности в своих силах</div>
             <div class="wish-item">Красоты, которая расцветает сильнее</div>
-            <div class="wish-item">Успехов в учёбе и делах</div>
-            <div class="wish-item">Путешествий в самые красивые места</div>
-            <div class="wish-item">Смеха до колик в животе</div>
-            <div class="wish-item">Добра от окружающих людей</div>
-            <div class="wish-item">Чудес, происходящих наяву</div>
-            <div class="wish-item">Энергии для реализации всех планов</div>
+            <div class="wish-item">Успехов во всех делах</div>
             <div class="wish-item">Нежности и заботы каждую минуту</div>
             <div class="wish-item">Ярких и незабываемых моментов</div>
-            <div class="wish-item">Тепла, которое всегда с тобой</div>
             <div class="wish-item">Волшебства в обычных буднях</div>
-            <div class="wish-item">Смелости идти за своей мечтой</div>
-            <div class="wish-item">Понимания и поддержки от близких</div>
             <div class="wish-item">Солнечного настроения даже в дождь</div>
-            <div class="wish-item">Лёгкости в решении любых задач</div>
-            <div class="wish-item">Светлых мыслей и спокойных снов</div>
-            <div class="wish-item">Праздника, который никогда не кончается</div>
-            <div class="wish-item">Мира и уюта в твоём доме</div>
-            <div class="wish-item">Творческих взлётов и побед</div>
-            <div class="wish-item">Искренности в каждом слове</div>
-            <div class="wish-item">Благополучия во всех сферах жизни</div>
-            <div class="wish-item">Приятных сюрпризов без повода</div>
-            <div class="wish-item">Восторга от этого прекрасного мира</div>
-            <div class="wish-item">Оптимизма и веры в лучшее</div>
-            <div class="wish-item">Комфорта везде, где бы ты ни была</div>
-            <div class="wish-item">Внимания и душевного тепла</div>
-            <div class="wish-item">Вкусных моментов и сладкой жизни</div>
-            <div class="wish-item">Интересных открытий каждый день</div>
-            <div class="wish-item">Романтики и сказочных мгновений</div>
             <div class="wish-item">Сияния в твоих прекрасных глазах</div>
-            <div class="wish-item">Уважения и признания твоих талантов</div>
-            <div class="wish-item">Красочных, весёлых и запоминающихся приключений</div>
-            <div class="wish-item">Свободы быть собой в любой ситуации</div>
-            <div class="wish-item">Надежды, которая никогда не угасает</div>
-            <div class="wish-item">Мудрости для правильных решений</div>
-            <div class="wish-item">Щедрости судьбы на классные подарки</div>
-            <div class="wish-item">Удовлетворения от проделанной работы</div>
-            <div class="wish-item">Безопасности и надёжной защиты</div>
-            <div class="wish-item">Целеустремлённости для покорения вершин</div>
-            <div class="wish-item">Энтузиазма, зажигающего сердца</div>
-            <div class="wish-item">Восхищения со стороны окружающих</div>
-            <div class="wish-item">Достатка и финансовой свободы</div>
-            <div class="wish-item">Лёгких дорог к твоим целям</div>
-            <div class="wish-item">Цветения вечной весны внутри</div>
-            <div class="wish-item">Глубоких и приятных разговоров</div>
-            <div class="wish-item">Стабильности в счастливых моментах</div>
-            <div class="wish-item">Уникальности и сохранения своей изюминки</div>
-            <div class="wish-item">Движения только вперёд и вверх</div>
-            <div class="wish-item">Независимости в мыслях и действиях</div>
-            <div class="wish-item">Бодрости духа и отличного тонуса</div>
-            <div class="wish-item">Милых улыбок от прохожих</div>
-            <div class="wish-item">Интуиции, которая никогда не подводит</div>
-            <div class="wish-item">Красивых нарядов и стильных образов</div>
-            <div class="wish-item">Воспоминаний, которые греют душу</div>
-            <div class="wish-item">Уютных посиделок с чашкой чая</div>
-            <div class="wish-item">Зажигательных танцев и безудержного веселья</div>
-            <div class="wish-item">Умиротворения после сложного дня</div>
-            <div class="wish-item">Широких горизонтов и больших перспектив</div>
-            <div class="wish-item">Ясности ума и чётких целей</div>
-            <div class="wish-item">Внимательности к важным мелочам</div>
-            <div class="wish-item">Чуткости и доброты твоего сердца</div>
-            <div class="wish-item">Ярких красок в каждом мгновении</div>
-            <div class="wish-item">Свежести мыслей и бодрого утра</div>
-            <div class="wish-item">Душевного равновесия и баланса</div>
-            <div class="wish-item">Приятных новостей в любое время</div>
-            <div class="wish-item">Взаимопонимания без лишних слов</div>
-            <div class="wish-item">Сиы преодолеть любые временные трудности</div>
-            <div class="wish-item">Безусловного принятия и поддержки</div>
-            <div class="wish-item">Окрылённости от взаимных чувств</div>
-            <div class="wish-item">Интересных книг и захватывающих фильмов</div>
-            <div class="wish-item">Любимой музыки, создающей нужную атмосферу</div>
-            <div class="wish-item">Комплиментов, от которых тает сердце</div>
-            <div class="wish-item">Щедроих улыбок фортуны</div>
-            <div class="wish-item">Ощущения, что ты можешь абсолютно всё</div>
-            <div class="wish-item">Внутренней опоры и личной силы</div>
-            <div class="wish-item">Сладких мгновений безмятежного отдыха</div>
-            <div class="wish-item">Уюта в каждом уголке твоей комнаты</div>
-            <div class="wish-item">Дней, наполненных смыслом и пользой</div>
-            <div class="wish-item">Искрящейся радости от личных достижений</div>
-            <div class="wish-item">Лёгкого преодоления любых преград</div>
-            <div class="wish-item">Тёплого солнца над твоей головой</div>
-            <div class="wish-item">Гордости за саму себя</div>
-            <div class="wish-item">Прекрасного самочувствия каждую секунду</div>
-            <div class="wish-item">Осознания своей исключительности</div>
-            <div class="wish-item">Веры в свои безграничные возможности</div>
             <div class="wish-item">Бесконечного потока любви вокруг</div>
             <div class="wish-item">Счастья быть рядом со мной!</div>
         </div>
 
-        <div class="hint-text">
-            Можешь это не читать, просто знай, что там добрые слова 
-        </div>
+        <div class="hint-text">Можешь это не читать, просто знай, что там добрые слова ❤️</div>
 
         <div class="navigation">
-            <!-- Вот здесь класс round-button делает кнопку круглой -->
             <a href="page5.html" class="round-button">➜</a>
             <a href="page3.html" class="back-btn">← Назад</a>
         </div>
-    </div> <!-- Закрывает container -->
+    </div>
 
 </body>
 </html>
-

@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Финал!</title>
     <style>
-        /* Базовые настройки страницы — наш фирменный стиль */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #ffccd5; /* Розовый фон */
+            background-color: #ffccd5;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden; /* Чтобы сердечки не ломали прокрутку */
+            overflow: hidden;
             position: relative;
         }
 
-        /* Контейнер с темно-розовой рамкой */
         .container {
             background-color: #ffffff;
             padding: 40px 30px;
@@ -27,13 +25,12 @@
             width: 85%;
             text-align: center;
             border-radius: 20px;
-            border: 5px solid #ff477e; /* Темно-розовая рамка */
+            border: 5px solid #ff477e;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             position: relative;
-            z-index: 2; /* Чтобы текст был выше летающих сердечек */
+            z-index: 2;
         }
 
-        /* Текст "На этом всё" БОЛЬШИМИ буквами */
         .end-text {
             font-size: 2.5rem;
             font-weight: 900;
@@ -44,7 +41,6 @@
             letter-spacing: 1px;
         }
 
-        /* Текст про подарок в лагере средними буквами */
         .gift-text {
             font-size: 1.5rem;
             font-weight: 600;
@@ -53,7 +49,6 @@
             margin-bottom: 35px;
         }
 
-        /* Кнопка возврата на 4 страницу */
         .back-btn {
             display: inline-block;
             color: #ff477e;
@@ -68,38 +63,59 @@
             text-decoration: underline;
         }
 
-        /* Настройка летающих сердечек */
         .heart {
             position: absolute;
             bottom: -50px;
             font-size: 24px;
-            color: rgba(255, 71, 126, 0.6); /* Полупрозрачные розовые сердечки */
+            color: rgba(255, 71, 126, 0.6);
             user-select: none;
             pointer-events: none;
             animation: floatUp 5s linear infinite;
             z-index: 1;
         }
 
-        /* Анимация полета снизу вверх с легким покачиванием */
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 1;
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-50vh) translateX(20px) rotate(180deg); opacity: 0.8; }
+            100% { transform: translateY(-110vh) translateX(-20px) rotate(360deg); opacity: 0; }
+        }
+
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        @media (max-width: 600px) {
+            body {
+                min-height: 100vh;
+                /* Разрешаем скролл, только если контент не влезает */
+                overflow-y: auto; 
+                /* Центрируем белую плашку ровно посередине экрана телефона */
+                display: flex;
+                justify-content: center;
+                align-items: center; 
             }
-            50% {
-                transform: translateY(-50vh) translateX(20px) rotate(180deg);
-                opacity: 0.8;
+
+            .container {
+                padding: 25px 15px;
+                width: 90%;
+                max-width: 340px;
+                margin: 25px auto;
+                box-sizing: border-box;
+                height: auto;
             }
-            100% {
-                transform: translateY(-110vh) translateX(-20px) rotate(360deg);
-                opacity: 0;
+            .end-text {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            .gift-text {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+            .back-btn {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Набор летающих сердечек с разным расположением и задержкой старта -->
     <div class="heart" style="left: 5%; animation-delay: 0s; font-size: 20px;">❤️</div>
     <div class="heart" style="left: 15%; animation-delay: 2s; font-size: 30px;">💖</div>
     <div class="heart" style="left: 30%; animation-delay: 1s; font-size: 25px;">💗</div>
@@ -109,17 +125,8 @@
     <div class="heart" style="left: 90%; animation-delay: 1.5s; font-size: 32px;">💗</div>
 
     <div class="container">
-        <!-- Верхний блок -->
-        <div class="end-text">
-            На этом всё!
-        </div>
-
-        <!-- Средний блок -->
-        <div class="gift-text">
-            Но также тебя ждёт подарок <br> уже в лагере 🎁
-        </div>
-
-        <!-- Кнопка назад -->
+        <div class="end-text">На этом всё!</div>
+        <div class="gift-text">Но также тебя ждёт подарок <br> уже в лагере... 🎁</div>
         <div class="navigation">
             <a href="page4.html" class="back-btn">← Назад к пожеланиям</a>
         </div>
