@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        /* Базовые настройки страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #ffccd5; /* Розовый фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Чтобы смайлики не ломали прокрутку экрана */
+            position: relative;
+        }
+
+        /* Контейнер с темно-розовой рамкой */
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            max-width: 600px;
+            width: 85%;
+            text-align: center;
+            border-radius: 20px;
+            /* Темнее розовым рамка */
+            border: 5px solid #ff477e; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 2; /* Чтобы текст всегда был выше летающих смайликов */
+        }
+
+        /* Блок 1: БОЛЬШИЕ БУКВЫ */
+        .large-text {
+            font-size: 3rem; /* Очень крупный размер */
+            font-weight: 900;
+            color: #ff477e;
+            text-transform: uppercase; /* Автоматически делает все буквы заглавными */
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        /* Блок 2: Средние буквы */
+        .medium-text {
+            font-size: 1.5rem; /* Средний размер */
+            font-weight: 500;
+            color: #4a4a4a;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Круглая кнопка снизу */
+        .round-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            background-color: #ff477e;
+            color: white;
+            text-decoration: none; /* Убирает подчеркивание ссылки */
+            border-radius: 50%; /* Делает кнопку идеально круглой */
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* Эффект при наведении на кнопку */
+        .round-button:hover {
+            background-color: #ff7096;
+            transform: scale(1.1); /* Слегка увеличивается */
+        }
+
+        /* Настройка праздничных летающих смайликов */
+        .celebrate-emoji {
+            position: absolute;
+            bottom: -50px;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 6s linear infinite;
+            z-index: 1; /* Летают на фоне за карточкой */
+        }
+
+        /* Анимация полета снизу вверх с легким покачиванием и вращением */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(30px) rotate(180deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(-30px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Набор праздничных смайликов с разным временем, задержкой и размерами -->
+    <div class="celebrate-emoji" style="left: 7%; animation-delay: 0s; font-size: 25px;">🎉</div>
+    <div class="celebrate-emoji" style="left: 18%; animation-delay: 2.5s; font-size: 35px;">🥳</div>
+    <div class="celebrate-emoji" style="left: 28%; animation-delay: 1s; font-size: 28px;">🎈</div>
+    <div class="celebrate-emoji" style="left: 40%; animation-delay: 4s; font-size: 32px;">🎂</div>
+    <div class="celebrate-emoji" style="left: 55%; animation-delay: 0.5s; font-size: 24px;">🎁</div>
+    <div class="celebrate-emoji" style="left: 68%; animation-delay: 3s; font-size: 36px;">🎉</div>
+    <div class="celebrate-emoji" style="left: 80%; animation-delay: 1.5s; font-size: 30px;">🎈</div>
+    <div class="celebrate-emoji" style="left: 92%; animation-delay: 2s; font-size: 26px;">🥳</div>
+
+    <div class="container">
+        <!-- Блок с большими буквами -->
+        <div class="large-text">
+            Привет Аня
+        </div>
+
+        <!-- Блок со средними буквами -->
+        <div class="medium-text">
+            Поздровляю тебя с ДНЁМ РОЖДЕНИЯ нажми на кнопку чтобы дальше были странички.
+        </div>
+
+        <!-- Круглая кнопка, ведущая на вторую страницу -->
+        <a href="page2.html" class="round-button">➜</a>
+    </div>
+
+</body>
+</html>

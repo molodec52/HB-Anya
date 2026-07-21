@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Особенный сюрприз!</title>
+    <style>
+        /* Базовые настройки страницы — в стиле прошлых страниц */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #ffccd5; /* Розовый фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Чтобы геймпады не ломали прокрутку экрана */
+            position: relative;
+        }
+
+        /* Контейнер с темно-розовой рамкой */
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            max-width: 550px;
+            width: 85%;
+            text-align: center;
+            border-radius: 20px;
+            border: 5px solid #ff477e; /* Темно-розовая рамка */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 2; /* Текст выше летающих смайликов */
+        }
+
+        /* Верхний текст средними буквами */
+        .intro-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4a4a4a;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+
+        /* Огромная анимированная ссылка БОЛЬШИМИ буквами */
+        .video-link {
+            display: inline-block;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ff477e;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 45px;
+            transition: transform 0.3s ease, color 0.3s ease;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        /* Эффект при наведении */
+        .video-link:hover {
+            transform: scale(1.1);
+            color: #ff7096;
+            text-decoration: underline;
+        }
+
+        /* Анимация пульсации цвета */
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 71, 126, 0.2); }
+            to { text-shadow: 0 0 20px rgba(255, 71, 126, 0.6); }
+        }
+
+        /* Блок для кнопок навигации */
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Круглая кнопка снизу (стиль 1-в-1 с прошлых страниц) */
+        .round-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            background-color: #ff477e;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* Эффект при наведении на круглую кнопку */
+        .round-button:hover {
+            background-color: #ff7096;
+            transform: scale(1.1);
+        }
+
+        /* Кнопка возврата к Ямалю */
+        .back-btn {
+            display: inline-block;
+            color: #ff477e;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: #ff7096;
+            text-decoration: underline;
+        }
+
+        /* Настройка игровых летающих смайликов */
+        .game-emoji {
+            position: absolute;
+            bottom: -50px;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUpGames 6s linear infinite;
+            z-index: 1; /* Летают на фоне за карточкой */
+        }
+
+        /* Анимация полета снизу вверх с легким покачиванием и вращением */
+        @keyframes floatUpGames {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(30px) rotate(180deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(-30px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Набор летающих геймпадов и звездочек с разным временем и размерами -->
+    <div class="game-emoji" style="left: 8%; animation-delay: 0s; font-size: 28px;">🎮</div>
+    <div class="game-emoji" style="left: 20%; animation-delay: 3s; font-size: 24px;">⭐</div>
+    <div class="game-emoji" style="left: 32%; animation-delay: 1.5s; font-size: 32px;">🕹️</div>
+    <div class="game-emoji" style="left: 48%; animation-delay: 4.5s; font-size: 26px;">⭐</div>
+    <div class="game-emoji" style="left: 62%; animation-delay: 0.8s; font-size: 30px;">🎮</div>
+    <div class="game-emoji" style="left: 78%; animation-delay: 2.2s; font-size: 25px;">⭐</div>
+    <div class="game-emoji" style="left: 90%; animation-delay: 3.8s; font-size: 34px;">🕹️</div>
+
+    <div class="container">
+        <!-- Верхняя надпись -->
+        <div class="intro-text">
+            Я также построил <br> уровень для тебя!
+        </div>
+
+        <!-- Огромная ТОЧНАЯ ссылка на твое видео на YouTube -->
+        <a href="https://www.youtube.com/watch?v=1oGBrMQ1XaA" target="_blank" class="video-link">
+            НАЖМИ СЮДА
+        </a>
+
+        <!-- Блок навигации с кнопками -->
+        <div class="navigation">
+            <!-- Круглая кнопка, ведущая на page4.html -->
+            <a href="page4.html" class="round-button">➜</a>
+            
+            <!-- Ссылка обратно на страницу с Ямалем -->
+            <a href="page2.html" class="back-btn">← Назад</a>
+        </div>
+    </div>
+
+</body>
+</html>
